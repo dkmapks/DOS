@@ -1,0 +1,60 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 40px;
+  background: #ffffff;
+  color: #000;
+}
+
+#wheel {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid #333;
+  position: relative;
+  overflow: hidden;
+  background: conic-gradient(
+    #ff9999 0% 14.28%,
+    #99ccff 14.28% 28.56%,
+    #99ff99 28.56% 42.84%,
+    #cccccc 42.84% 57.12%,
+    #ffcc99 57.12% 71.4%,
+    #cccccc 71.4% 85.68%,
+    #ffb3e6 85.68% 100%
+  );
+}
+
+#spin {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#settings-modal {
+  border: 1px solid #aaa;
+  padding: 20px;
+  margin-top: 20px;
+  background: #f0f0f0;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.hidden {
+  display: none;
+}
+
+body.dark {
+  background: #222;
+  color: #fff;
+}
+
+body.dark #settings-modal {
+  background: #333;
+  color: #fff;
+}

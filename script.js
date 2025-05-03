@@ -1,11 +1,11 @@
 let wheel1 = [
   "sex", "jedzenie", "drapanie", "nic",
-  "nic ale nie obok siebie", "lodzik", "nic"
+  "nic", "lodzik", "nic"
 ];
 
 let wheel2 = [
   "sex", "jedzenie", "minetka", "nic",
-  "buziaczki", "coś słodkiego", "nic", "nic ale nie obok siebie"
+  "buziaczki", "coś słodkiego", "nic", "nic"
 ];
 
 let customWheel = null;

@@ -3,39 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DOS OS</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json" />
+  <title>Koło Fortuny</title>
 </head>
 <body>
-  <div id="boot-screen">
-    <img src="IMG_4189.jpeg"alt="DOS Logo" class="logo"/>
-    <p class="boot-text">Uruchamianie DOS...</p>
-  </div>
+  <h1>Koło Fortuny</h1>
 
-  <div id="lock-screen" style="display:none;">
-    <p class="swipe-text">Przesuń w górę, aby odblokować</p>
-    <div id="swipe-zone"></div>
-  </div>
+  <label for="wheel-select">Wybierz koło:</label>
+  <select id="wheel-select">
+    <option value="wheel1">Koło 1</option>
+    <option value="wheel2">Koło 2</option>
+  </select>
 
-  <div id="pin-screen" style="display:none;">
-    <p>Wprowadź kod PIN:</p>
-    <input type="password" id="pin-input" maxlength="6" />
-    <button onclick="verifyPin()">Odblokuj</button>
-    <p id="pin-error" class="error"></p>
-  </div>
+  <div id="wheel"></div>
+  <button id="spin">Zakręć</button>
+  <div id="result"></div>
 
-  <div id="home-screen" style="display:none;">
-    <h1>DOS</h1>
-    <div class="app-grid">
-      <div class="app" onclick="openApp('Messenger')">Messenger</div>
-      <div class="app" onclick="openApp('mObywatel')">mObywatel</div>
-      <div class="app" onclick="openApp('Instagram')">Instagram</div>
-      <div class="app" onclick="openApp('Facebook')">Facebook</div>
-    </div>
-    <div id="app-window" style="display:none;">
-      <button onclick="closeApp()">Zamknij</button>
-      <div id="app-content"></div>
+  <button id="settings-btn">Ustawienia</button>
+
+  <div id="settings-modal" class="hidden">
+    <h2>Ustawienia</h2>
+
+    <label>Kod dostępu:
+      <input type="password" id="code-input" />
+    </label>
+    <button id="submit-code">Otwórz</button>
+
+    <div id="mod-options" class="hidden">
+      <h3>Tryb oszukiwania</h3>
+      <label>Wymuszony wynik:
+        <input type="text" id="forced-result" placeholder="np. sex" />
+      </label>
+
+      <h3>Motyw</h3>
+      <select id="theme-select">
+        <option value="light">Jasny</option>
+        <option value="dark">Ciemny</option>
+      </select>
+
+      <h3>Edytuj opcje koła</h3>
+      <textarea id="custom-options" rows="5" placeholder="Wpisz po jednej opcji na linię..."></textarea>
+      <button id="save-options">Zapisz opcje</button>
     </div>
   </div>
 

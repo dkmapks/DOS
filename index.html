@@ -2,52 +2,61 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoPay - Wybierz typ biletu</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
-  <title>Koło Fortuny</title>
 </head>
 <body>
-  <h1>Koło Fortuny</h1>
-
-  <label for="wheel-select">Wybierz koło:</label>
-  <select id="wheel-select">
-    <option value="wheel1">Koło 1</option>
-    <option value="wheel2">Koło 2</option>
-  </select>
-
-  <div id="wheel"></div>
-  <button id="spin">Zakręć</button>
-  <div id="result"></div>
-
-  <button id="settings-btn">Ustawienia</button>
-
-  <div id="settings-modal" class="hidden">
-    <h2>Ustawienia</h2>
-
-    <label>Kod dostępu:
-      <input type="password" id="code-input" />
-    </label>
-    <button id="submit-code">Otwórz</button>
-
-    <div id="mod-options" class="hidden">
-      <h3>Tryb oszukiwania</h3>
-      <label>Wymuszony wynik:
-        <input type="text" id="forced-result" placeholder="np. sex" />
-      </label>
-
-      <h3>Motyw</h3>
-      <select id="theme-select">
-        <option value="light">Jasny</option>
-        <option value="dark">Ciemny</option>
-      </select>
-
-      <h3>Edytuj opcje koła</h3>
-      <textarea id="custom-options" rows="5" placeholder="Wpisz po jednej opcji na linię..."></textarea>
-      <button id="save-options">Zapisz opcje</button>
+  <header>
+    <div class="top-bar">
+      <span class="back">←</span>
+      <span class="title">GoPay</span>
+      <span class="battery">60%</span>
     </div>
-  </div>
+    <h1>Wybierz typ biletu</h1>
+  </header>
 
-  <script src="script.js"></script>
+  <main>
+    <section class="ticket-types">
+      <div class="button highlight">Jednorazowe i krótkookresowe</div>
+      <div class="button">Okresowy</div>
+      <div class="button">Normalny</div>
+      <div class="button">Ulgowy</div>
+    </section>
+
+    <section class="payment-screen">
+      <h2>Akceptacja płatności</h2>
+      <p><strong>Kwota:</strong> 3.80 zł</p>
+      <p><strong>Płacisz za:</strong> Zakup biletów</p>
+
+      <div class="method">
+        <h3>Płatność kartą</h3>
+        <div class="card-box">
+          Jeśli chcesz zapłacić kartą płatniczą, kliknij tu:
+          <div class="logos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="VISA" />
+          </div>
+        </div>
+      </div>
+
+      <div class="method">
+        <h3>Płatność blikiem</h3>
+        <div class="blik-box">
+          Użyj kodu z aplikacji banku
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Logo_BLIK.svg" alt="BLIK" />
+        </div>
+      </div>
+
+      <div class="method">
+        <h3>Płatność przelewy24</h3>
+        <div class="przelewy-box">
+          Jeśli chcesz zapłacić Przelewy24, kliknij tu:
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Logo_Przelewy24.png" alt="Przelewy24" />
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

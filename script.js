@@ -2,11 +2,11 @@ const shippingCost = 9.99;
 let wallet = 0;
 
 const warehouseProducts = [
-  { id: 1, name: "Suplement B12 1g", buyPrice: 10 },
-  { id: 2, name: "Kreatyna 500g", buyPrice: 30 },
-  { id: 3, name: "Witamina C 100g", buyPrice: 15 },
-  { id: 4, name: "Omega 3 60 kaps.", buyPrice: 25 },
-  { id: 5, name: "Kawa ziarnista 250g", buyPrice: 20 },
+  { id: 1, name: "Marihuana 1g", buyPrice: 10 },
+  { id: 2, name: "Mefedron 1g", buyPrice: 30 },
+  { id: 3, name: "Kokaina 1g", buyPrice: 15 },
+  { id: 4, name: "Pixy 1g", buyPrice: 25 },
+  { id: 5, name: "Amfetamina 1g", buyPrice: 20 },
   { id: 6, name: "Zioła relaksujące", buyPrice: 12 },
   { id: 7, name: "Ashwagandha 100g", buyPrice: 18 },
   { id: 8, name: "Pre-workout", buyPrice: 28 },

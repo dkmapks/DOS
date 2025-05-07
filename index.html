@@ -1,76 +1,31 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hurtowa sprzedaż narkotyków</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Symulacja Sklepu</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hurtowa sprzedaż narkotyków</h1>
-    <div>
-        <p>Gotówka: <span id="cash">1000</span> zł</p>
-        <p>Bitcoin: <span id="btc">0.000</span></p>
-        <p>Przechowywane: <span id="storageUsed">0</span>g / <span id="storageLimit">50</span>g</p>
-    </div>
+  <h1>MyDrugs</h1>
+  <div id="wallet">💰 Portfel: 1000 zł</div>
 
-    <h2>Magazyn</h2>
-    <div id="warehouseOptions"></div>
+  <section>
+    <h2>Hurtownia - Kup Produkty</h2>
+    <div id="warehouse" class="product-grid"></div>
+  </section>
 
-    <h2>Zakupy</h2>
-    <label for="buyDrug">Nazwa narkotyku:</label>
-    <select id="buyDrug">
-        <option value="kokaina">Kokaina</option>
-        <option value="marihuana">Marihuana</option>
-        <option value="mefedron">Mefedron</option>
-        <option value="amfetamina">Amfetamina</option>
-        <option value="pixy">Pixy</option>
-    </select>
-    <br>
-    <label for="buyAmount">Ilość (g):</label>
-    <input type="number" id="buyAmount" value="10">
-    <br>
-    <label for="buyPrice">Cena za gram:</label>
-    <input type="number" id="buyPrice" value="100">
-    <br>
-    <button onclick="manualBuy()">Kup</button>
+  <section>
+    <h2>Twój Sklep - Ustal Ceny</h2>
+    <div id="shop" class="product-grid"></div>
+  </section>
 
-    <h2>Sprzedaż</h2>
-    <label for="sellDrug">Nazwa narkotyku:</label>
-    <select id="sellDrug">
-        <option value="kokaina">Kokaina</option>
-        <option value="marihuana">Marihuana</option>
-        <option value="mefedron">Mefedron</option>
-        <option value="amfetamina">Amfetamina</option>
-        <option value="pixy">Pixy</option>
-    </select>
-    <br>
-    <label for="sellAmount">Ilość (g):</label>
-    <input type="number" id="sellAmount" value="10">
-    <br>
-    <label for="sellPrice">Cena za gram:</label>
-    <input type="number" id="sellPrice" value="150">
-    <br>
-    <button onclick="manualSell()">Sprzedaj</button>
+  <section>
+    <h2>Klient - Kupuje z Twojego Sklepu</h2>
+    <div id="storefront" class="product-grid"></div>
+  </section>
 
-    <h2>Oferty od dostawców</h2>
-    <div id="supplierOffers"></div>
-
-    <h2>Oferty sprzedaży dla klientów</h2>
-    <div id="clients"></div>
-
-    <h2>VIP klienci</h2>
-    <div id="vipClients"></div>
-
-    <h2>Podróże</h2>
-    <div id="travel"></div>
-
-    <h2>Pracownicy</h2>
-    <div id="workersList"></div>
-    <select id="workerName"></select>
-    <br>
-    <button onclick="hireWorker()">Zatrudnij pracownika</button>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

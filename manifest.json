@@ -1,9 +1,21 @@
 {
   "name": "Buszenie",
-  "short_name": "Buszenue",
-  "start_url": ".",
+  "short_name": "Buszenie",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#4e54c8",
-  "theme_color": "#8f94fb
-::contentReference[oaicite:0]{index=0}
- 
+  "background_color": "#000000",
+  "theme_color": "#ffffff",
+  "description": "PWA pokazująca aktualny czas i lekcję dla klas 8a–8d",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

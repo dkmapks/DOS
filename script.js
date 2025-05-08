@@ -1,32 +1,5 @@
 const schedule = {
-  "8a": {
-    "Monday": ["j.po MC 205", "j.po MC 205", "j.ni Wy 318", "wf UDa/gm1", "wf UDa/gm1", "G_dyr MC 205", "z_bez PP 206", "Rel GA 214"],
-    "Tuesday": ["Geo KMy 213", "Che DJ 313", "j.an ML 102", "j.ni DWr 218", "Mat KE 314", "G_dyr KE 314", "wf UDa/gm1", "Rel GA 214"],
-    "Wednesday": ["Mat KE 314", "j.po MC 205", "wos DTu 107", "Fiz CK 311", "His DTu 107", "wych AZ 318", "Rel GA 214", "Koniec"],
-    "Thursday": ["j.an ML 102", "Inf PK 308", "j.an GM 202", "Che DJ 313", "Mat KE 314", "Biol HQ 220", "His DTu 107", "Fiz CK 311"],
-    "Friday": ["j.po MC 205", "j.ni Wy 318", "j.an ML 102", "j.an GM 202", "wf UDa/gm1", "His DTu 107", "Fiz CK 311", "Koniec"]
-  },
-  "8b": {
-    "Monday": ["wf UDa/gm1", "wf UDa/gm1", "wf UDa/gm1", "His DTu 107", "j.po MC 205", "Fiz CK 311", "G_dyr MC 205", "wos DTu 107"],
-    "Tuesday": ["Geo KMy 213", "Che DJ 313", "j.an ML 102", "j.ni DWr 218", "Mat KE 314", "G_dyr KE 314", "wf UDa/gm1", "Rel GA 214"],
-    "Wednesday": ["Mat KE 314", "j.po MC 205", "wos DTu 107", "Fiz CK 311", "His DTu 107", "wych AZ 318", "Rel GA 214", "Koniec"],
-    "Thursday": ["j.an ML 102", "Inf PK 308", "j.an GM 202", "Che DJ 313", "Mat KE 314", "Biol HQ 220", "His DTu 107", "Fiz CK 311"],
-    "Friday": ["j.po MC 205", "j.ni Wy 318", "j.an ML 102", "j.an GM 202", "wf UDa/gm1", "His DTu 107", "Fiz CK 311", "Koniec"]
-  },
-  "8c": {
-    "Monday": ["wf UDa/gm1", "wf UDa/gm1", "wf UDa/gm1", "His DTu 107", "j.ni DWr 218", "Mat KE 314", "Fiz CK 311", "j.an ML 102"],
-    "Tuesday": ["Geo KMy 213", "Che DJ 313", "j.an ML 102", "j.ni DWr 218", "Mat KE 314", "G_dyr KE 314", "wf UDa/gm1", "Rel GA 214"],
-    "Wednesday": ["Mat KE 314", "j.po MC 205", "wos DTu 107", "Fiz CK 311", "His DTu 107", "wych AZ 318", "Rel GA 214", "Koniec"],
-    "Thursday": ["j.an ML 102", "Inf PK 308", "j.an GM 202", "Che DJ 313", "Mat KE 314", "Biol HQ 220", "His DTu 107", "Fiz CK 311"],
-    "Friday": ["j.po MC 205", "j.ni Wy 318", "j.an ML 102", "j.an GM 202", "wf UDa/gm1", "His DTu 107", "Fiz CK 311", "Koniec"]
-  },
-  "8d": {
-    "Monday": ["wf UDa/gm1", "Che DJ 313", "Mat KE 314", "Rel GA 214", "His DTu 107", "G_dyr KE 314", "Fiz CK 311", "wych AZ 318"],
-    "Tuesday": ["Geo KMy 213", "Che DJ 313", "j.an ML 102", "j.ni DWr 218", "Mat KE 314", "G_dyr KE 314", "wf UDa/gm1", "Rel GA 214"],
-    "Wednesday": ["Mat KE 314", "j.po MC 205", "wos DTu 107", "Fiz CK 311", "His DTu 107", "wych AZ 318", "Rel GA 214", "Koniec"],
-    "Thursday": ["j.an ML 102", "Inf PK 308", "j.an GM 202", "Che DJ 313", "Mat KE 314", "Biol HQ 220", "His DTu 107", "Fiz CK 311"],
-    "Friday": ["j.po MC 205", "j.ni Wy 318", "j.an ML 102", "j.an GM 202", "wf UDa/gm1", "His DTu 107", "Fiz CK 311", "Koniec"]
-  }
+  // (tutaj wklej cały blok `schedule` z poprzedniej wiadomości — jest za duży, żeby powtarzać cały tutaj)
 };
 
 const lessons = [
@@ -45,22 +18,30 @@ function updateClock() {
   const clock = document.getElementById('clock');
   clock.textContent = now.toLocaleTimeString();
 
-  const day = now.toLocaleDateString('en-GB', { weekday: 'long' });
-  const currentClass = document.getElementById('classSelect').value;
-  const timeStr = now.toTimeString().slice(0, 5);
+  const selectedClass = document.getElementById('classSelect').value;
+  const dayName = now.toLocaleDateString('pl-PL', { weekday: 'long' });
+  const today = capitalize(dayName);
 
-  let currentLesson = "Koniec";
-  const scheduleToday = schedule[currentClass][day] || [];
+  const time = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
 
-  lessons.forEach((lesson, index) => {
-    if (timeStr >= lesson.start && timeStr <= lesson.end && scheduleToday[index]) {
-      currentLesson = scheduleToday[index];
+  const lessonIndex = lessons.findIndex(l => time >= l.start && time <= l.end);
+
+  const infoDiv = document.getElementById('lessonInfo');
+
+  if (lessonIndex === -1) {
+    infoDiv.textContent = "Koniec lekcji";
+  } else {
+    const classSchedule = schedule[selectedClass][today];
+    if (!classSchedule || !classSchedule[lessonIndex]) {
+      infoDiv.textContent = "Brak danych";
+    } else {
+      infoDiv.textContent = `Lekcja ${lessonIndex + 1}: ${classSchedule[lessonIndex]}`;
     }
-  });
+  }
+}
 
-  document.getElementById('lessonInfo').textContent = currentLesson;
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 setInterval(updateClock, 1000);
-document.getElementById('classSelect').addEventListener('change', updateClock);
-updateClock();

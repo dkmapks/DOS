@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gra Kupno-Sprzedaż</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Zegar i Lekcje</title>
 </head>
 <body>
-  <h1>Gra Kupno-Sprzedaż</h1>
-  <div id="game-container">
-    <p>Witaj w grze! Kupuj tanio, sprzedawaj drożej.</p>
+  <div class="container">
+    <h1>Zegar</h1>
+    <div id="clock"></div>
+
+    <h2>Aktualna lekcja</h2>
+    <select id="classSelect">
+      <option value="8a">Klasa 8a</option>
+      <option value="8b">Klasa 8b</option>
+      <option value="8c">Klasa 8c</option>
+      <option value="8d">Klasa 8d</option>
+    </select>
+    <div id="lessonInfo"></div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
